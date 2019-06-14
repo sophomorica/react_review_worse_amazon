@@ -7,10 +7,36 @@ class DepartmentForm extends React.Component{
 
   componentDidMount(){
     const {match:{params:{id}}} = this.props
-    const { id }
+    if (id){
+      axios.get(`/api/departments/${id}`)
+        .then(res=>{
+          this.setState({name: res.data.name})
+        })
+        .catch(err=>{
+          console.log(err.response)
+        })
+    }
+  }
+  handleChange = (e) => {
+    const {target: {name, value} } = e
+    this.setState({[name]:value})
+
+  }
+  handleSubmit = (e) =>{
+    e.preventDefault()
+    const dep = { ...this.state }
+    const { match: {params:{ id}}, history: {push}} = this.props
+    if (id){
+      axios.put(`/api/departments/${id}`, dep)
+        .then(res=> push(`/departments/${id}`))
+    } else {
+      axios.post('api/departments', dep)
+      .then(res=> push(`/departments/${res.data.id}`))
+    }
   }
   
   render(){
+    const {name } = this.state
     return(
       <Container>
         <Form onSubmit={this.handleSubmit}>
@@ -18,7 +44,7 @@ class DepartmentForm extends React.Component{
               name="name"
               placeholder="Department Name"
               required
-              // value={name}
+              value={name}
               onChange={this.handleChange}
                />
         <Button color="green" style={{marginTop:'30px'}}>Submit</Button>
