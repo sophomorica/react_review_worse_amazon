@@ -1,11 +1,13 @@
 import React from 'react';
-import {Navbar,} from 'semantic-ui-react'
-import {Switch, Route} from 'react-router-dom'
+import Navbar from './components/Navbar'
+import {Switch, Route,} from 'react-router-dom'
+import {Container} from 'semantic-ui-react'
 
 const App = () =>{
   return (
-    <>
-      <h1>Hello World</h1>
+    <> 
+    
+      <Navbar/>
     </>
   );
 }
