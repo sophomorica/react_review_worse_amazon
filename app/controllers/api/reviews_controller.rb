@@ -1,48 +1,48 @@
 class Api::ReviewsController < ApplicationController
-  before_action set_item:
-  before_action set_rev:, only: [:show, :update, :destroy]
+  before_action :set_item
+  before_action :set_review, only: [:show, :update, :destroy]
 
   def index
     render json: @item.reviews
   end
 
   def show
-    render json: @rev
+    render json: @review
   end
 
   def create
-    rev = @item.reviews.new(rev_params)
-    if rev.save
-      render json: rev
+    review = @item.reviews.new(review_params)
+
+    if review.save
+      render json: review
     else
-      render json: rev.errors, status: 422
+      render json: review.errors, status: 422
     end
   end
 
   def update
-    if @rev.update(rev_params)
-      render json: @rev
+    if @review.update(review_params)
+      render json: @review
     else
-      render json: @rev.errors, status: 422
+      render json: @review.errors, status: 422
     end
   end
 
   def destroy
-    @rev.destroy
+    @review.destroy
   end
 
-  private 
-  
-  def set_rev
-    @rev = Review.find(params[:id])
-  end
+  private
 
-  def rev_params
-    params.require(:item).permit(:title, :body, :author, :image_url)
+  def set_review
+    @review = Review.find(params[:id])
   end
 
   def set_item
-    @item = Item.find(:item_id)
+    @item = Item.find(params[:item_id])
   end
 
+  def review_params
+    params.require(:review).permit(:title, :body, :author, :rating, :image_url)
+  end
 end
