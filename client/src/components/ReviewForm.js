@@ -88,13 +88,55 @@ class ReviewForm extends React.Component{
   }
 
   render(){
-
-    return(
-      <>
-        <Form>
-          <input/>
+    const { title, body, author, rating } = this.state
+    return (
+      <div style={{marginLeft: '100px'}}>
+        {!this.props.add ? <h1>Edit Review</h1> : null}
+        <Form style={{ marginTop: '10px' }} onSubmit={this.handleSubmit}>
+          <Form.Group width="equal">
+            <Rating
+              name="rating"
+              icon="star"
+              defaultRating={1}
+              maxRating={5}
+              rating={rating}
+              clearable
+              onRate={this.handleRating}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Input
+              name="title"
+              label="Title"
+              placeholder="Title"
+              required
+              value={title}
+              onChange={this.handleChange}
+            />
+            <Form.Input
+              name="body"
+              label="Body"
+              placeholder="Body"
+              required
+              value={body}
+              onChange={this.handleChange}
+            />
+            <Form.Input
+              name="author"
+              label="Author"
+              placeholder="Author"
+              required
+              value={author}
+              onChange={this.handleChange}
+            />
+            <Form.Input
+              label="Image"
+              control={this.dropdownImageSelect}
+            />
+          </Form.Group>
+          <Form.Button color='green'>Submit</Form.Button>
         </Form>
-      </>
+      </div>
     )
   }
 }
