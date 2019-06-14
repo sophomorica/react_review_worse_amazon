@@ -3,7 +3,7 @@ class Api::ItemsController < ApplicationController
   before_action set_item:, only: [:show, :update, :destroy]
   
   def index
-    render json: @dep.items.all
+    render json: @dep.items
   end
 
   def show
@@ -32,7 +32,7 @@ class Api::ItemsController < ApplicationController
   end
 
   private
-  
+
   def set_item
     @item = Item.find(params[:id])
   end
