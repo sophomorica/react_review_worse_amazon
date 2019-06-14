@@ -39,7 +39,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def set_dep
-    @dep = Dep.find(params[:dep_id])
+    @dep = Department.find(params[:dep_id])
   end
 
   def item_params
