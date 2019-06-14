@@ -79,6 +79,7 @@ class ReviewForm extends React.Component{
         })
 
     } else{
+      const{item_id} = this.props
       axios.post(`/api/items/${item_id}/reviews`, {...this.state})
         .then(res=> this.props.addReview(res.data))
         this.props.toggle()
