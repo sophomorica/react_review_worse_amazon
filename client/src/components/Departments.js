@@ -42,7 +42,8 @@ class Departments extends React.Component{
                 height: '120px',
                 width: '160px'
               }}
-              src={'https://loremflickr.com'}
+              src={'https://loremflickr.com/400/400/commerce?' + Math.random() }
+              alt='department'
               />
             </Card.Content>
           </CardStyles>
