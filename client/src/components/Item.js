@@ -12,7 +12,7 @@ class Item extends React.Component{
     const {match: {params: {id, department_id} } } = this.props
     axios.get(`/api/departments/${department_id}/items/${id}`)
     .then(res=>{
-      this.setState({Item: res.data})
+      this.setState({item: res.data})
     })
     .catch(err=>{
       console.log(err.response)

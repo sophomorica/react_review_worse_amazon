@@ -100,3 +100,4 @@ class Department extends React.Component {
 }
 
 export default Department
+
