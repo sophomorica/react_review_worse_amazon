@@ -8,6 +8,7 @@ const Navbar = () =>(
     <Menu inverted>
         <Menu.Item>
       <NavLink 
+      exact
       to ='/'
       activeStyle={styles.active}
       >
@@ -15,17 +16,22 @@ const Navbar = () =>(
       </NavLink>
         </Menu.Item>
         <Menu.Item>
+
       <NavLink to ='/about'
+      exact
       activeStyle={styles.active}
       >
           About
       </NavLink>
         </Menu.Item>
-      <NavLink to ='/departments'>
         <Menu.Item>
+      <NavLink 
+       exact
+       activeStyle={styles.active}
+      to ='/departments'>
           Departments
-        </Menu.Item>
       </NavLink>
+        </Menu.Item>
     </Menu>
     <div style={{display:'flex', justifyContent: 'center'}}>
       <div style={{
