@@ -37,9 +37,15 @@ class Item extends React.Component {
             Go Back
             </Button>
         </Link>
-        <h1>{name}</h1>
-        <Image src={"https://loremflickr.com/400/400/products?" + Math.random()} alt="Product" />
+        <div className='item_view'>
+        <div className='item_card'>
+
+        <h1>{name} :</h1>
         <h2>${price}</h2>
+        <Image src={"https://loremflickr.com/400/400/products?" + Math.random()} alt="Product" />
+        </div>
+        <div className='item_des'>
+
         <h3>Product Description:</h3>
         <p>{description}</p>
         <Link to={`/departments/${department_id}/items/${id}/edit`}>
@@ -52,6 +58,8 @@ class Item extends React.Component {
           <Icon name='trash' />
           Delete Item
         </Button>
+        </div>
+        </div>
         <Reviews id={id} />
       </Container>
     )

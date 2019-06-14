@@ -32,7 +32,7 @@ class ReviewForm extends React.Component{
     const {image_url} = this.state
     const images = [
       {
-        text: 'blue',
+        // text: 'blue',
         value: 'https://robohash.org/sitsequiquia.png?size=300x300&set=set1',
         image:{
           avatar: true,
