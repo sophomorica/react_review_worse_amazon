@@ -6,7 +6,7 @@ import Reviews from './Reviews'
 
 
 class Item extends React.Component{
-  state = {item: []}
+  state = {item: {}}
 
   componentDidMount(){
     const {match: {params: {id, department_id} } } = this.props
@@ -54,6 +54,7 @@ class Item extends React.Component{
               <Icon name='trash'/>
               Delete Item
             </Button>
+            <Reviews id={id}/>
         </Container>
       </>
     )
