@@ -9,8 +9,24 @@ class ReviewForm extends React.Component{
 
   componentDidMount(){
     if(this.props.edit){
-      axios.get(`/api/items/${this.props.location.state.item}`)
+      axios.get(`/api/items/${this.props.location.state.item_id}/${this.props.match.params.id}`)
+        .then(res=>{
+          this.setState({...res.data})
+        })
     }
+  }
+  
+  handleChange = ({target: {name, value}})=>{
+    this.setState({[name]:value})
+  }
+
+  handleRating = (e, {rating}) =>{
+    this.setState({raiting})
+  }
+
+  handleImage = (e)=>{
+    const image_url = e.target.currentSrc
+    this.setState({image_url})
   }
   
   render()

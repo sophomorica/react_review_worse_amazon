@@ -106,7 +106,7 @@ class Reviews extends React.Component{
             <Icon name='comment alternate outline'/>
             Write a Review
           </Button>
-          {/* {this.renderForm()} */}
+          {this.renderForm()}
           <div style={{display:'flex', justifyContent:'flex-start', marginTop:'30px'}}>
             <Card.Group itemsPerRow={3}>
               {this.displayReviews()}
