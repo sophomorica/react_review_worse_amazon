@@ -1,5 +1,6 @@
 class Api::DepartmentsController < ApplicationController
-  before_action set_dep:, only: [:show, :udpate, :destroy]
+  before_action :set_dep, only: [:show, :update, :destroy]
+
   def index
     render json: Department.all
 
@@ -20,7 +21,7 @@ class Api::DepartmentsController < ApplicationController
     if @dep.update(dep_params)
       render json: @dep
     else
-      render json: @dep.errors. status: 422
+      render json: @dep.errors, status: 422
     end
   end
   
