@@ -1,17 +1,18 @@
 class Api::ItemsController < ApplicationController
   before_action :set_dep
   before_action :set_item, only: [:show, :update, :destroy]
-  
+
   def index
     render json: @dep.items
   end
 
   def show
-   render json: @item 
+    render json: @item
   end
 
   def create
     item = @dep.items.new(item_params)
+
     if item.save
       render json: item
     else
@@ -36,10 +37,12 @@ class Api::ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  def item_params
-    params.require(:item).permit(:name, :discription, :price)
-  end
+
   def set_dep
-    @dep = Department.find(:department_id)
+    @dep = Dep.find(params[:dep_id])
+  end
+
+  def item_params
+    params.require(:item).permit(:name, :description, :price)
   end
 end
