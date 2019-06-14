@@ -1,15 +1,23 @@
 import React from 'react';
 import Navbar from './components/Navbar'
+import Home from './components/Home'
+import About from './components/About'
+import NoMatch from './components/NoMatch'
 import {Switch, Route,} from 'react-router-dom'
-import {Container} from 'semantic-ui-react'
 
-const App = () =>{
-  return (
-    <> 
-    
-      <Navbar/>
+const App = () => (
+
+  
+     <> 
+    <Navbar/>
+      <Switch>
+        <Route exact path = '/' component={Home}/>
+        <Route exact path = '/about' component={About}/>
+        <Route component={NoMatch}/>
+      </Switch>
     </>
-  );
-}
+    
+  
+  )
 
 export default App;
