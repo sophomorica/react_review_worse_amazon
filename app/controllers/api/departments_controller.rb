@@ -32,7 +32,8 @@ class Api::DepartmentsController < ApplicationController
   def set_dep
     @dep = Department.find(params[:id])
   end
+  
   def dep_params
-    params.require(:department).premit(:name)
+    params.require(:department).permit(:name)
   end
 end

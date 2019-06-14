@@ -30,7 +30,7 @@ class DepartmentForm extends React.Component{
       axios.put(`/api/departments/${id}`, dep)
         .then(res=> push(`/departments/${id}`))
     } else {
-      axios.post('api/departments', dep)
+      axios.post('/api/departments', dep)
       .then(res=> push(`/departments/${res.data.id}`))
     }
   }
