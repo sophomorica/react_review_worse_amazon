@@ -8,6 +8,8 @@ import Department from './components/Department'
 import DepartmentForm from './components/DepartmentForm'
 import {Switch, Route,} from 'react-router-dom'
 import Item from './components/Item'
+import ReviewForm from './components/ReviewForm'
+// import ItemForm from './components/ItemForm'
 
 
 const App = () => (
@@ -23,6 +25,8 @@ const App = () => (
     <Route exact path = '/departments/:id/edit' component={DepartmentForm}/>
     <Route exact path = '/departments/:id' component={Department}/>
     <Route exact path = '/departments/:department_id/items/:id' component={Item}/>
+    {/* <Route exact path = '/departments/:department_id/items/:id/edit' component={ItemForm}/> */}
+    <Route exact path = '/review/:id/:edit' render={props=><ReviewForm edit {...props}/>}/>
     <Route component={NoMatch}/>
   </Switch>
 </>
