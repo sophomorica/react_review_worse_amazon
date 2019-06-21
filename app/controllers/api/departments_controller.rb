@@ -8,6 +8,7 @@ class Api::DepartmentsController < ApplicationController
   def show
     render json: @dep
   end
+  
   def create
     dep = Department.new(dep_params)
     if dep.save
